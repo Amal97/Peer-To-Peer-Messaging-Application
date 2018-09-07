@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CompSys 302 - Home Page</title>
+        <link href="static/css/stylesheet.css" rel="stylesheet" type="text/css">
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+    </head>
+    <body>
+<div class="nav">
+    <a  class = "active" href="/home">Home</a>
+    <a  href="/profile_page">Profile</a>
+    <a  href="/shutdown">Log Out</a>
+    <div class="topnav-right">
+        <a href="/home">Compsys 302 Messaging</a>
+    </div>
+</div>
+    <br/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<div class="row">
+    <div class="container-fluid main">
+        <div class="col-xs-3 no-pad">
+            <div class="people">
+                <div class="user">
+                    <div class="user-item">
+                        <div class="pull-left">
+                            <p class="name">{{username}}</p>
+                            <p class="active">active</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-head">
+                    <p>  Users</p>
+                </div>
+                <div class="list" id="onlineUsers">
+                    <div class="list-item">
+                        <p class="pull-left">
+                            {% for x in range(onlineUsers|length) %}
+                             <ul>
+                                <form action="/message" method="post" enctype="multipart/form-data" class="form-signin">
+                                    <input div="online" type="submit" value = {{onlineUsers[x]}} name="recipient" class="onlineUsers">
+                                </form>
+                                    <div class="status">
+                                     <i class="fa fa-circle online"></i> online
+                                    </div>
+                            </ul>
+                            {% endfor %}
+
+                        {% for x in range(users|length) %}
+                        {% if users[x] not in onlineUsers %}
+                             <ul>
+                                <form action="/message" method="post" enctype="multipart/form-data" class="form-signin">
+                                    <input type="submit" value = {{users[x]}} name="recipient" class="onlineUsers">
+                                </form>
+                                 <div class="status">
+                                     <i class="fa fa-circle offline"></i> offline
+                                 </div>
+                            </ul>
+                        {% endif %}
+                            {% endfor %}
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-xs-7">
+                <div class="chat-wrapper">
+                    <div class="chat-history">
+                        {% if destination in onlineUsers %}
+                        <p>{{destination}} is online</p>
+                        {% elif ( (destination not in onlineUsers) and (destination in users)) %}
+                        <p>{{destination}} is offline</p>
+                        {% else %}
+                            <p>Select an online user to message or select any user to see previous messages</p>
+                        {% endif %}
+                        <ul>
+                            {% for x in range((messageList|length)) %}
+                            {% if messageList[x][1] == username %}
+                            <div class="clearfix">
+                                <div class="message-data align-right">
+                                    <span class="message-data-name" >{{username}}</span> <i class="fa fa-circle me"></i>
+                                </div>
+                                <div class="message-data align-right">
+                                {% if messageList[x][4] and 'image' in messageList[x][4] %}
+                                    <img width='300' height='250' src='/static/sent_files/{{messageList[x][3]}}' alt= 'Sent File'><br>
+                                    <a href='/static/sent_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a>
+
+                                {% elif messageList[x][4] and 'application' in messageList[x][4] %}
+                                    <object width='300' height='250' data='/static/sent_files/{{messageList[x][3]}}' type='{{messageList[x][4]}}' alt= 'Sent File'><br>
+                                    <a href='/static/sent_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a></object>
+
+                                {% elif messageList[x][4] and 'video' in messageList[x][4] %}
+                                    <object width='300' height='250' data='/static/sent_files/{{messageList[x][3]}}' type='{{messageList[x][4]}}' alt= 'Sent File'><br>
+                                    <a href='/static/sent_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a></object>
+
+                                {% elif messageList[x][4] and 'audio' in messageList[x][4] %}
+                                    <object width='300' height='100' data='/static/sent_files/{{messageList[x][3]}}' type='{{messageList[x][4]}}' alt= 'Sent File' ><br>
+                                    <a href='/static/sent_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a></object>
+                                {% else %}
+                                <br>
+                                <div class="message other-message float-right">
+                                    {{messageList[x][0]}}
+                                </div>
+                                </div>
+
+                                {% endif %}
+                            </div>
+                            {% else %}
+                            <div>
+                                <div class="message-data">
+                                    <span class="message-data-name"><i class="fa fa-circle online"></i> {{destination}}</span>
+                                </div>
+                                {% if messageList[x][4] and 'image' in messageList[x][4] %}
+                                <img width='300' height='250' src='/static/received_files/{{messageList[x][3]}}' alt= 'Sent File'><br>
+                                <a href='/static/received_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a>
+
+                                {% elif messageList[x][4] and 'application' in messageList[x][4] %}
+                                <object width='300' height='250' data='/static/received_files/{{messageList[x][3]}}' type='{{messageList[x][4]}}' alt= 'Sent File'><br>
+                                <a href='/static/received_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a></object>
+
+                                {% elif messageList[x][4] and 'video' in messageList[x][4] %}
+                                <object width='300' height='250' data='/static/received_files/{{messageList[x][3]}}' autoplay="false" type='{{messageList[x][4]}}' alt= 'Sent File'><br>
+                                <a href='/static/received_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a></object>
+
+                                {% elif messageList[x][4] and 'audio' in messageList[x][4] %}
+                                <object width='300' height='100' data='/static/received_files/{{messageList[x][3]}}' autoplay="false" type='{{messageList[x][4]}}' alt= 'Sent File'><br>
+                                    <a href='/static/received_files/{{messageList[x][3]}}' target='_blank' >{{messageList[x][3]}}</a></object>
+
+                                {% else %}
+
+                                <div class="message my-message">
+                                    {{messageList[x][0]}}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="align-right">
+                                    <p>{{messageDelivered}}</p>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                {% if destination in users %}
+                <div class="chat-message clearfix">
+                    <form action="/messageForm" method="post" enctype="multipart/form-data">
+                        <textarea placeholder="Enter your message" name = "message"></textarea>
+                        <input type="hidden" placeholder="send to" name = "recipient" value = {{destination}} />
+                        <button class="fa fa-send"> send message</button>
+                    </form>
+                    <form action="/fileForm" method="post" enctype="multipart/form-data">
+                        <input type="hidden" placeholder="send to" name = "recipient" value = {{destination}} />
+                        <input type="file" name="myfile" accept="file_extension|audio/*|video/*|image/*|media_type">
+                        <button class="fa fa-send"> send file</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

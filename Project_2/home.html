@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CompSys 302 - Home Page</title>
+        <link href="static/css/stylesheet.css" rel="stylesheet" type="text/css">
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <body>
+<div class="nav">
+    <a  class = "active" href="/home">Home</a>
+    <a  href="/profile_page">Profile</a>
+    <a  href="/shutdown">Log Out</a>
+    <div class="topnav-right">
+        <a href="/home">Compsys 302 Messaging</a>
+    </div>
+</div>
+    <br/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<div class="row">
+    <div class="container-fluid main">
+        <div class="col-xs-3 no-pad">
+            <div class="people">
+                <div class="user">
+                    <div class="user-item">
+                        <div class="pull-left">
+                            <p class="name">{{username}}</p>
+                            <p class="active">active</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-head">
+                    <p>Users</p>
+                </div>
+                <div class="list">
+                    <div class="list-item">
+                        <p class="pull-left">
+                            {% for x in range(onlineUsers|length) %}
+                             <ul>
+                                <form action="/message" method="post" enctype="multipart/form-data" class="form-signin">
+                                    <input type="submit" value = {{onlineUsers[x]}} name="recipient" class="onlineUsers">
+                                </form>
+                                    <div class="status">
+                                     <i class="fa fa-circle online"></i> online
+                                    </div>
+                            </ul>
+                            {% endfor %}
+
+                        {% for x in range(users|length) %}
+                        {% if users[x] not in onlineUsers %}
+                             <ul>
+                                <form action="/message" method="post" enctype="multipart/form-data" class="form-signin">
+                                    <input type="submit" value = {{users[x]}} name="recipient" class="onlineUsers">
+                                </form>
+                                 <div class="status">
+                                     <i class="fa fa-circle offline"></i> offline
+                                 </div>
+                            </ul>
+                        {% endif %}
+                            {% endfor %}
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+

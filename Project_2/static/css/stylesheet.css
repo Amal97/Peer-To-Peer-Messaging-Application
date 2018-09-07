@@ -1,0 +1,385 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+.Header{
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  text-align : center;
+  margin-top: 75px;
+}
+
+.Header_HomePage{
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  text-align : center;
+  margin-top: 10px;
+}
+
+.login-page {
+  width: 400px;
+  padding: 2% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  background: #FFFFFF;
+  max-width: 70vh;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background:   green;
+}
+.nav{
+  background-color: black;
+    overflow: hidden;
+}
+.nav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav a:hover {
+    background-color: #ddd;
+    color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+* { font-family: 'Montserrat'; }
+.no-pad { padding: 0; }
+
+.main {
+  height: 89%;
+  background: #222;
+}
+.people {
+  height: 90vh;
+  background: #222;
+  border-right: 3px solid #656565;
+  overflow-y: auto;
+  float: left;
+  width:300px;
+}
+
+.user {
+  display: table;
+  width: 100%;
+  height: 100px;
+}
+.user-item {
+  display: table-cell;
+  height: inherit;
+  padding-left: 15px;
+  padding-right: 15px;
+  vertical-align: middle;
+}
+.user-item img { border-radius: 50%; }
+.user-item p.name {
+  margin: 0;
+  padding-left: 15px;
+  font-size: 20px;
+  color: #f1f1f1;
+}
+.user-item p.active {
+  margin: 0;
+  padding-left: 15px;
+  font-size: 10px;
+  color: #f1f1f1;
+}
+.list-head {
+  padding: 5px;
+  background: #3d3d3d;
+  border-style: solid;
+  border-width: 1vh;
+  border-color: #222 ;
+}
+.list-head p {
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  color: #f1f1f1;
+}
+.list-item {
+  display: table;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border-left: 4px solid transparent;
+}
+.list-item img {
+  display: table-cell;
+  height: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.user-profile {
+  height:89vh;
+  vertical-align: bottom;
+}
+
+.user-profile p {
+  color: white;
+  font-size: 20px;
+  padding-top: 5%;
+  padding-left: 45%;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.chat-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column-reverse;
+  background-color: black;
+}
+.chat-content {
+  display: table-cell;
+  width: 100%;
+  margin-top: 20px;
+  vertical-align: bottom;
+  position: relative;
+}
+.chat-content p {
+  color: white;
+    font-size: 20px;
+}
+
+.chat-message {
+  padding: 1.25vh;
+  padding-left: 20vw;
+}
+.chat-message textarea {
+  position: relative;
+  border: none;
+  background-color: white;
+  width: 50vw;
+  height: 15vh;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  color: black;
+  margin-bottom: 2vh;
+  border-radius: 5px;
+  resize: none;
+}
+.chat-message button {
+  float: right ;
+  color: white ;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #3d3d3d;
+}
+
+.chat-message input[type=file] {
+  color: white ;
+  float: right;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+
+.left {
+	position: relative;
+	background: #323232;
+}
+.right {
+	position: relative;
+	background: #323232;
+}
+
+.form-control {
+  background-color: #444;
+  border: #C71585;
+  height: 150px;
+  width: 75%;
+  color:white;
+  font-size: 25px;
+}
+
+.chat-img {
+  width: 30px;
+  height: 30px;
+  margin-left: 1em;
+}
+.chat-img-left {
+  width: 30px;
+  height: 30px;
+  margin-right: 1em;
+}
+.chat-info {
+  padding-top: 200px;
+  background-color: #2d2d2d;
+}
+.chat-info p {
+  color: #f1f1f7;
+}
+.chat-info-box {
+  border-top: 2px solid #3d3d3d;
+}
+.chat-info-item {
+  padding: 10px;
+  border-bottom: 2px solid #3d3d3d;
+}
+.chat-history {
+    padding: 30px 30px 20px;
+    border-bottom: 2px solid white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 70vh;
+}
+.message {
+    color: white;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    width: 20%;
+    position: relative;
+}
+.my-message {
+    position: relative;
+    left: 0px;
+    background: deepskyblue;
+    word-wrap: break-word;
+}
+.message-data {
+      margin-bottom: 15px;
+}
+.other-message {
+    background: Green;
+    word-wrap: break-word;
+}
+.float-right {
+  float: right;
+}
+
+.onlineUsers {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-family: "Roboto", sans-serif;
+    font-size:20px;
+    color: white;
+}
+
+.edit{
+  font-size: 12px;
+  color:white;
+  padding-left: 2vw;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  height: 10px;
+  background: #444753;
+  border-radius: 5px;
+}
+
+.online, .offline, .me {
+  margin-right: 3px;
+  font-size: 10px;
+}
+
+.online {
+  #color: #86BB71;
+    color:green;
+}
+
+.offline {
+  #color: #E38968;
+    color:red;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #3d3d3d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3d3d3d;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+
+
+
+
+body {
+  font: 10px/16px "Lato", Arial, sans-serif;
+  color: white;
+    background-color: #3d3d3d;
+}

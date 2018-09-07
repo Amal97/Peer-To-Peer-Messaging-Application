@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" >
+		<title>CompSys 302 - Home Page</title>
+        <link href="static/css/stylesheet.css" rel="stylesheet" type="text/css">
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    </head>
+    <body>
+<div class="nav">
+    <a  href="/home">Home</a>
+    <a  class = "active" href="/profile_page">Profile</a>
+    <a  href="/shutdown">Log Out</a>
+    <div class="topnav-right">
+        <a href="/home">Compsys 302 Messaging</a>
+    </div>
+</div>
+    <br/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<div class="row">
+    <div class="form">
+        <form action="/edit_profile" method="post" enctype="multipart/form-data" class="form-signin">
+            <input type="text" placeholder="fullname" name = "fullname"/>
+            <input type="text" placeholder="position" name = "position"/>
+            <input type="text" placeholder="description" name = "description"/>
+            <input type="text" placeholder="location" name = "location"/>
+            <input type="text" placeholder="url picture" name = "picture"/>
+            <button>Save</button>
+        </form>
+    </div>
+    </body>

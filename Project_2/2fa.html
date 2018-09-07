@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CompSys 302 - Home Page</title>
+        <link href="static/css/stylesheet.css" rel="stylesheet" type="text/css">
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <body>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    {% if link %}
+    <h3> Scan the QR Code in your Google Authenticator app: </h3>
+        <p> Get the QR Code from here </p>
+        {{link}}
+    {% else %}
+    <br><br><br>
+         <h3> Please enter the code from the Google Authenticator app: </h3>
+    {% endif %}
+
+    <form action="/reply" method="post" enctype="multipart/form-data">
+        <input placeholder="Enter code" name = "code"></input>
+        <button class="fa fa-send">  send</button>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CompSys 302 - Home Page</title>
+        <link href="static/css/stylesheet.css" rel="stylesheet" type="text/css">
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    </head>
+    <body>
+<div class="nav">
+    <a  href="/home">Home</a>
+    <a  class = "active" href="/profile_page">Profile</a>
+    <a  href="/shutdown">Log Out</a>
+    <div class="topnav-right">
+        <a href="/home">Compsys 302 Messaging</a>
+    </div>
+</div>
+    <br/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<div class="row">
+    <div class="container-fluid main">
+        <div class="col-xs-3 no-pad">
+            <div class="people">
+                <div class="user">
+                    <div class="user-item">
+                        <div class="pull-left">
+                            <p class="name">{{username}}</p>
+                            <a class="edit"  href="/edit_profile">edit</a>
+                            <p class="active">active</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-head">
+                    <p>  Users</p>
+                </div>
+                <div class="list" id="onlineUsers">
+                    <div class="list-item">
+                        <p class="pull-left">
+                            {% for x in range(onlineUsers|length) %}
+                             <ul>
+                                <form action="/profile_page" method="post" enctype="multipart/form-data" class="form-signin">
+                                    <input div="online" type="submit" value = {{onlineUsers[x]}} name="profile_username" class="onlineUsers">
+                                </form>
+                                    <div class="status">
+                                     <i class="fa fa-circle online"></i> online
+                                    </div>
+                            </ul>
+                            {% endfor %}
+
+                        {% for x in range(users|length) %}
+                        {% if users[x] not in onlineUsers %}
+                             <ul>
+                                <form action="/profile_page" method="post" enctype="multipart/form-data" class="form-signin">
+                                    <input type="submit" value = {{users[x]}} name="profile_username" class="onlineUsers">
+                                </form>
+                                 <div class="status">
+                                     <i class="fa fa-circle offline"></i> offline
+                                 </div>
+                            </ul>
+                        {% endif %}
+                            {% endfor %}
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-xs-7">
+                 <div class="chat-wrapper">
+                     <div class="user-profile">
+                         {% if fullname %}
+                         <p>
+                             <img src={{picture}} width="300" height="300" alt="No photo available"><br><br>
+                             Full Name : {{fullname}} <br> <br>
+                             Position : {{position}} <br> <br>
+                             Description : {{description}} <br> <br>
+                             Location : {{location}} <br> <br>
+                             Last Updated : {{stamp}}
+                         </p>
+                         {% endif %}
+                     </div>
+                 </div>
+            </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
